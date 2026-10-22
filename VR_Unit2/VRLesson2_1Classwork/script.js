@@ -17,6 +17,20 @@ window.addEventListener("DOMContentLoaded",function() {
   3) Change each <a-dodecahedron>'s to a random color.  Hint: Use rgb( ) and string interpolation 
   */
   
+  for (let i = 0; i < 12; i++) {
+    let newShape = document.createElement("a-dodecahedron");
 
+    let x = 5-(Math.random()*20);
+    let y = 2.5-(Math.random()*10);
+    let z = 5-(Math.random()*20);
+    newShape.setAttribute("position", `${x} ${y} ${z}`);
+
+    let r = Math.floor(Math.random()*256);
+    let g = Math.floor(Math.random()*256);
+    let b = Math.floor(Math.random()*256);
+    newShape.setAttribute("color", `rgb(${r}, ${g}, ${b})`);
+    
+    scene.append(newShape);
+  }
 
 })
