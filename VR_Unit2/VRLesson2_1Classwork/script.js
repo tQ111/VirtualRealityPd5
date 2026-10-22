@@ -21,7 +21,7 @@ window.addEventListener("DOMContentLoaded",function() {
     let newShape = document.createElement("a-dodecahedron");
 
     let x = 5-(Math.random()*20);
-    let y = 2.5-(Math.random()*10);
+    let y = 5-(Math.random()*10);
     let z = 5-(Math.random()*20);
     newShape.setAttribute("position", `${x} ${y} ${z}`);
 
