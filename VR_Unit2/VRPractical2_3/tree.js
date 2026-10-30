@@ -1,6 +1,7 @@
 class Tree{
   constructor(x,y,z){
     this.obj = document.createElement("a-entity");
+    let rnd = (l,u) => Math.floor(Math.random()*(u-l) + l);
   
     let pines = document.createElement("a-cone");
     pines.setAttribute("color","green");
@@ -14,7 +15,11 @@ class Tree{
     stump.setAttribute("radius","0.25");
     this.obj.append( stump );
   
-    this.obj.setAttribute("position",{x:x, y:y, z:z});
+    let s = rnd(0.5, 2.5);
+    let sy = s+1;
+    this.obj.setAttribute("scale", {x:s, y:sy, z:s})
+    this.obj.setAttribute("position",{x:x, y:s/2, z:z});
+
     scene.append( this.obj )
   }
 }
