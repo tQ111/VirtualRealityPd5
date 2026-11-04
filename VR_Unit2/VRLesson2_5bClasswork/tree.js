@@ -3,7 +3,7 @@ class Tree{
     this.obj = document.createElement("a-entity");
   
     let pines = document.createElement("a-cone");
-    pines.setAttribute("color","green");
+    pines.setAttribute("color","white");
     pines.setAttribute("position","0 1.5 0");
     pines.setAttribute("height","2");
     this.obj.append( pines );

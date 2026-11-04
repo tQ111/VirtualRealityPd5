@@ -10,7 +10,6 @@ class Cloud{
     for(let i = -1; i <= 1; i++){
       let r = rnd(0,shapes.length);
       let puff = document.createElement(shapes[r]);
-      puff.setAttribute("position",{x:i, y:0, z:0});
       puff.setAttribute("color", "white");
       this.obj.append( puff );
     }

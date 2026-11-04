@@ -15,6 +15,7 @@ class Cloud{
       this.obj.append( puff );
     }
     this.obj.setAttribute("position",{x:x, y:y, z:z});
+    this.obj.setAttribute("scale", "2 2 2");
     scene.append( this.obj )
   }
   fly(){
