@@ -7,9 +7,9 @@ function rnd(l, u){
 window.addEventListener("DOMContentLoaded",function() {
   scene = document.querySelector("a-scene"); //CSS Selector
 
-  for(let i = 0; i < 100; i++){
-    let x = rnd(-45,45);
-    let z = rnd(-45,45);
+  for(let i = 0; i < 150; i++){
+    let x = rnd(-90,90);
+    let z = rnd(-90,90);
     createTree(x,0,z);
   }
 
@@ -19,9 +19,9 @@ window.addEventListener("DOMContentLoaded",function() {
     createCloud(x,40,z);
   }
 
-  for(let i = 0; i < 20; i++){
-    let x = rnd(-45,45);
-    let z = rnd(-45,45);
+  for(let i = 0; i < 25; i++){
+    let x = rnd(-80,80);
+    let z = rnd(-80,80);
     createHouse(x,0,z);
   }
 

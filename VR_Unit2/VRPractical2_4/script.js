@@ -15,8 +15,8 @@ window.addEventListener("DOMContentLoaded",function() {
   }
 
     for(let i = 0; i < 25; i++){
-      let x = rnd(-48,48);
-      let z = rnd(-48,48);
+      let x = rnd(-35,35);
+      let z = rnd(-35,35);
       let ufo = new UFO(x, 50, z);
       UFOs.push(ufo);
     }

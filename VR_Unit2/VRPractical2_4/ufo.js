@@ -57,13 +57,13 @@ class UFO{
         this.dy = 0.1;
         this.dz = rnd(-0.1,1);
 
-        if(this.x < 100){
-            this.x -= this.dx;
+        if(this.x > 65){
+            this.x -= 0.5;
         }else{
-            if(this.x > -100){
-                this.x += this.dx;
+            if(this.x < -65){
+                this.x += 0.5;
             }else{
-                this.x += this.x;
+                this.x += this.dx;
             }
         }
 
@@ -75,11 +75,11 @@ class UFO{
             }
         }
 
-        if(this.z < 100){
-            this.z -= this.dz;
+        if(this.z > 65){
+            this.z -= 0.5;
         }else{
-            if(this.z > -100){
-                this.z += this.dz;
+            if(this.z < -65){
+                this.z += 0.5;
             }else{
                 this.z += this.dz;
             }
