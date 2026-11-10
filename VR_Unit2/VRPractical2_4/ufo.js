@@ -15,6 +15,7 @@ class UFO{
             head.setAttribute("color", "#ededed");
             head.setAttribute("scale", "1.2 1.2 1.2");
             head.setAttribute("position", "0 0.5 0");
+            head.setAttribute("opacity", "0.5");
             full.append(head);
 
             let body = document.createElement("a-sphere");
@@ -23,11 +24,26 @@ class UFO{
             body.setAttribute("position", "0 0 0");
             full.append(body);
 
-            let body1 = document.createElement("a-sphere");
-            body1.setAttribute("scale", "2.2 0.2 2.2");
-            body1.setAttribute("color", "#9e9e9e");
-            body1.setAttribute("position", "0 0 0");
-            full.append(body1);
+            let trim = document.createElement("a-sphere");
+            trim.setAttribute("scale", "2.2 0.2 2.2");
+            trim.setAttribute("color", "#9e9e9e");
+            trim.setAttribute("position", "0 0 0");
+            full.append(trim);
+
+            let btrim = document.createElement("a-cylinder");
+            btrim.setAttribute("radius", "1.2");
+            btrim.setAttribute("color", "#828183");
+            btrim.setAttribute("position", "0 -0.5 0");
+            btrim.setAttribute("height", "0.5");
+            full.append(btrim);
+
+            let beam = document.createElement("a-cylinder");
+            beam.setAttribute("radius", "1");
+            beam.setAttribute("color", "#c175ff");
+            beam.setAttribute("position", "0 -50 0");
+            beam.setAttribute("height", "100");
+            beam.setAttribute("opacity", "0.5");
+            full.append(beam);
             
             full.setAttribute("position", {x:x, y:y, z:z});
         this.obj.append(full);
@@ -38,31 +54,31 @@ class UFO{
     invade(){
         let rnd = (l,u) => Math.floor(Math.random()*(u-l) + l);
         this.dx = rnd(-0.1,1);
-        this.dy = 0.2;
+        this.dy = 0.1;
         this.dz = rnd(-0.1,1);
 
-        if(this.x > 50){
+        if(this.x < 100){
             this.x -= this.dx;
         }else{
-            if(this.x < -50){
+            if(this.x > -100){
                 this.x += this.dx;
             }else{
-                this.x += this.dx;
+                this.x += this.x;
             }
         }
-        if(this.y > 35){
-            this.y -= this.dy;
+
+        if(this.y == -48){
+            this.y == -48;
         }else{
-            if(this.y < 25){
-                this.y += this.dy;
-            }else{
-                this.y += this.dy;
+            if(this.y > -48){
+                this.y -= this.dy;
             }
         }
-        if(this.z > 100){
+
+        if(this.z < 100){
             this.z -= this.dz;
         }else{
-            if(this.z < -100){
+            if(this.z > -100){
                 this.z += this.dz;
             }else{
                 this.z += this.dz;
