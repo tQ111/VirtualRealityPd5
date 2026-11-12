@@ -53,15 +53,15 @@ class UFO{
 
     invade(){
         let rnd = (l,u) => Math.floor(Math.random()*(u-l) + l);
-        this.dx = rnd(-0.1,1);
+        this.dx = rnd(-0.2,1.167);
         this.dy = 0.1;
-        this.dz = rnd(-0.1,1);
+        this.dz = rnd(-0.2,1.167);
 
-        if(this.x > 65){
-            this.x -= 0.5;
+        if(this.x >= 65){
+            this.x -= 1;
         }else{
-            if(this.x < -65){
-                this.x += 0.5;
+            if(this.x <= -65){
+                this.x += 1;
             }else{
                 this.x += this.dx;
             }
@@ -75,11 +75,11 @@ class UFO{
             }
         }
 
-        if(this.z > 65){
-            this.z -= 0.5;
+        if(this.z >= 65){
+            this.z -= 1;
         }else{
-            if(this.z < -65){
-                this.z += 0.5;
+            if(this.z <= -65){
+                this.z += 1;
             }else{
                 this.z += this.dz;
             }

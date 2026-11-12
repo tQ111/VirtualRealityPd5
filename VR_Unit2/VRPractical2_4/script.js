@@ -1,7 +1,9 @@
 let rnd = (l,u) => Math.floor(Math.random()*(u-l) + l);
-let scene, rocket, ufo;
+let scene, rocket, ufo, cloud;
 let rockets = [];
 let UFOs = [];
+let clouda = [];
+let cloudb = [];
 
 window.addEventListener("DOMContentLoaded",function() {
   scene = document.querySelector("a-scene"); 
@@ -24,13 +26,21 @@ window.addEventListener("DOMContentLoaded",function() {
     for(let i = 0; i < 100; i++){
     let x = rnd(-45,45);
     let z = rnd(-45,45);
-    createTree(x,0,z);
+    createTree(x,-0.5,z);
   }
 
   for(let i = 0; i < 1000; i++){
     let x = rnd(-200,200);
     let z = rnd(-200,200);
-    createCloud(x,40,z);
+    let cloud = new Cloud(x,40,z);
+    clouda.push(cloud);
+  }
+
+  for(let i = 0; i < 500; i++){
+    let x = rnd(-200,200);
+    let z = rnd(-200,200);
+    let cloud = new Cloud(x,55,z);
+    cloudb.push(cloud);
   }
 
   for(let i = 0; i < 20; i++){
@@ -52,31 +62,15 @@ function loop(){
     ufo.invade();
   }
 
-  window.requestAnimationFrame( loop );
-}
+  for(let cloud of clouda){
+    cloud.move();
+  }
 
-function createCloud(x, y, z){
-  let cloud = document.createElement("a-entity");
-  
-  let sphere1 = document.createElement("a-sphere");
-  sphere1.setAttribute("position", "0 0 0");
-  sphere1.setAttribute("color", "white");
-  cloud.append(sphere1);
-  let sphere2 = document.createElement("a-sphere");
-  sphere2.setAttribute("position", "1 0 -0.5");
-  sphere2.setAttribute("color", "white");
-  cloud.append(sphere2);
-  let sphere3 = document.createElement("a-sphere");
-  sphere3.setAttribute("position", "-1 0 0");
-  sphere3.setAttribute("color", "white");
-  cloud.append(sphere3);
-  let sphere4 = document.createElement("a-sphere");
-  sphere4.setAttribute("position", "-0.5 0 -1");
-  sphere4.setAttribute("color", "white");
-  cloud.append(sphere4);
-  
-  cloud.setAttribute("position", {x:x, y:y, z:z});
-  scene.append(cloud);
+  for(let cloud of cloudb){
+    cloud.moveslow();
+  }
+
+  window.requestAnimationFrame( loop );
 }
 
 function createHouse(x, y, z){
