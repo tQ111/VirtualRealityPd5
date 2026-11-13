@@ -8,7 +8,6 @@ let cloudb = [];
 window.addEventListener("DOMContentLoaded",function() {
   scene = document.querySelector("a-scene"); 
 
-
   for(let r = -5; r < 5; r++){
     for(let c = -18; c < -8; c++){
       let rocket = new Rocket(r*5, 0, c*5);
