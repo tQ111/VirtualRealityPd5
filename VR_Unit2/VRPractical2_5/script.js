@@ -10,19 +10,27 @@
    you chose to put in the maze.  Get Creative!
 */
 
+
+
 let maze = [
-  "----------------------",
-  "----------------------",
-  "----------------------",
-  "----------------------",
-  "----------------------",
-  "----------------------",
-  "----------------------",
-  "----------------------",
-  "----------------------",
-  "----------------------",
-  "----------------------",
-  "----------------------",
+  "----wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+  "-------w-----------------------------c---w",
+  "--------------------w---------w---------w",
+  "----wwwwwwwwwwwwwwwww---wwwwwwwwwwww---ww",
+  "w-------------------w---w--w--w---------w",
+  "wwwwwwwww--www--wwww------w--w---w------w",
+  "w------------w------w---------w---w-----w",
+  "ww---wwwwwwwww----------wwwwwwwwwww--w--w",
+  "w------------w---w--------w----------w--w",
+  "w----wwwwwwwww---w-------------------w--w",
+  "w----w--wwwwww---wwwww-----wwwwwwwww-w--w",
+  "w----w-------w---w----------------c-----w",
+  "w----wwww----w---wwwwwwwwwwwww-----wwwwww",
+  "w------------w---w--------c--w-----w----w",
+  "wwwwwwwwww-------w--wwwwwwwwww-----w----w",
+  "w----------------w----c-----------------w",
+  "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+
 ];
 
 /* Challenge 2
@@ -30,17 +38,31 @@ let maze = [
 */
 
 let scene;
+let coins = [];
 
 window.addEventListener("DOMContentLoaded",function() {
   scene = document.querySelector("a-scene");
   for(let r = 0; r < maze.length; r++){
-    /* Challenge 3
-      Choose a technique to traverse the each character in the string.
-    */ 
-    /* Challenge 4
-       Make an appropriate decision based on the characters you chose to enter 
-       in the maze.  Create an instance of the corresponding object.
-    */
-  }
+    let row = maze[r];
+    let cols = row.split("");
+    for(let c = 0; c < cols.length; c++){
+      if(cols[c] == "w"){
+        new Wall(c,1,r)
+      }
+      else if(cols[c] == "c"){
+        let coin = new Coin(c,1,r);
+        coins.push(coin);
+      }else if(cols[c]=="o"){
+        new Rock(c,1,r)
+      }
+    }
 
+  }
+  loop();
 })
+function loop(){
+  for(let coin of coins){
+    coin.float();
+  }
+  window.requestAnimationFrame( loop );
+}
