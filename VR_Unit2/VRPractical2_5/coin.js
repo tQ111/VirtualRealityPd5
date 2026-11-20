@@ -13,14 +13,14 @@ class Coin{
 
     let ring = document.createElement("a-torus");
     ring.setAttribute("color", "#f5d742");
-    ring.setAttribute("radius", "0.4");
-    ring.setAttribute("radius-tubular", "0.03");
+    ring.setAttribute("radius", "0.2");
+    ring.setAttribute("radius-tubular", "0.015");
     this.obj.append(ring);
 
     let body = document.createElement("a-cylinder");
     body.setAttribute("src", "cointexture.png");
-    body.setAttribute("radius", "0.4");
-    body.setAttribute("height", "0.08");
+    body.setAttribute("radius", "0.2");
+    body.setAttribute("height", "0.04");
     body.setAttribute("rotation", "0 90 90");
     this.obj.append(body);
 
@@ -32,10 +32,10 @@ class Coin{
     this.y += this.dy;
     this.a += this.da;
    
-    if(this.y > 2){
+    if(this.y > 1.2){
       this.dy = -this.dy;
     }
-    if(this.y < 1){
+    if(this.y < 0.2){
       this.dy = -this.dy;
     }
     

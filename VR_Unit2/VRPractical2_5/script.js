@@ -14,22 +14,42 @@
 
 let maze = [
   "----wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
-  "-------w-----------------------------c---w",
+  "-------w-----------------------------m--w",
   "--------------------w---------w---------w",
   "----wwwwwwwwwwwwwwwww---wwwwwwwwwwww---ww",
-  "w-------------------w---w--w--w---------w",
-  "wwwwwwwww--www--wwww------w--w---w------w",
-  "w------------w------w---------w---w-----w",
+  "w-------------------------w-------------w",
+  "wwwwwwwww--www--wwww----------w---w-----w",
+  "w------------w-----w----w-----w---w-----w",
   "ww---wwwwwwwww----------wwwwwwwwwww--w--w",
   "w------------w---w--------w----------w--w",
-  "w----wwwwwwwww---w-------------------w--w",
+  "w----wwwwwwwww---w----m--------------w--w",
   "w----w--wwwwww---wwwww-----wwwwwwwww-w--w",
-  "w----w-------w---w----------------c-----w",
+  "w----w-------w---w----------------------w",
   "w----wwww----w---wwwwwwwwwwwww-----wwwwww",
-  "w------------w---w--------c--w-----w----w",
+  "w------------w---w-----------w-----w----w",
   "wwwwwwwwww-------w--wwwwwwwwww-----w----w",
-  "w----------------w----c-----------------w",
-  "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+  "w-----m--w---w---w----m-----------------w",
+  "w---w----w---w--w-----------------------w",
+  "w---wwwwww---w--w----wwwww--wwwwww---wwww",
+  "w------------w-------w------------------w",
+  "wwwwwwwww--www--wwww----------w---w-----w",
+  "w------------w-----w----w-----w---w-----w",
+  "ww---wwwwwwwww----------wwwwwwwwwww--w--w",
+  "w------------w---w--------w----------w--w",
+  "w----wwwwwwwww---w----m--------------w--w",
+  "w----w--wwwwww---wwwww-----wwwwwwwww-w--w",
+  "w----w-------w---w----------------------w",
+  "w----wwww----w---wwwwwwwwwwwww-----wwwwww",
+  "w------------w---w-----------w-----w----w",
+  "wwwwwwwwww-------w--wwwwwwwwww-----w----w",
+  "w-----m--w---w---w----m-----------------w",
+  "w---ww---w---w--w-----------------------w",
+  "w----wwwww---w--w----wwwww--wwwwww---wwww",
+  "w------------w-------w------------------w",
+  "w----------w------------------------w----",
+  "w--wwwwww--w---ww----wwwwwwwwwwwww--w----",
+  "w--w-------w----w-------------------w----",
+  "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww----",
 
 ];
 
@@ -49,11 +69,9 @@ window.addEventListener("DOMContentLoaded",function() {
       if(cols[c] == "w"){
         new Wall(c,1,r)
       }
-      else if(cols[c] == "c"){
+      else if(cols[c] == "m"){
         let coin = new Coin(c,1,r);
         coins.push(coin);
-      }else if(cols[c]=="o"){
-        new Rock(c,1,r)
       }
     }
 

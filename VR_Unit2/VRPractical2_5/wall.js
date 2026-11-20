@@ -5,7 +5,7 @@ class Wall{
     this.z = y;
     
     this.obj = document.createElement("a-box");
-    this.obj.setAttribute("height", "5");
+    this.obj.setAttribute("height", "3");
     this.obj.setAttribute("src","brick.png");
     this.obj.setAttribute("position",{x:x,y:y,z:z});
     scene.append(this.obj);
